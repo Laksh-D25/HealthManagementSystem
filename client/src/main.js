@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import { createPinia } from 'pinia'
 import App from './App.vue';
+import './style.css'
 
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
@@ -54,8 +55,7 @@ const router = createRouter({
 
 const app = createApp(App);
 app.use(pinia)
-app.use(ToastService)
-app.use(PrimeVue,{ theme: {
+app.use(PrimeVue, { theme: {
     preset: Aura,
     options: {
         prefix: 'p',
@@ -63,4 +63,5 @@ app.use(PrimeVue,{ theme: {
         cssLayer: false
     }
 }})
+app.use(ToastService)
 app.use(router).mount("#app");
